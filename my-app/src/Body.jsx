@@ -1,14 +1,22 @@
 import React from 'react';
 import Card from './Card'
+import contacts from './contacts';
+
+function createCard(prop){
+    return (<Card 
+        key={prop.id}
+        imgName={prop.imgUrl}
+        name={prop.name}
+        phone={prop.phone}
+        email={prop.email}
+    />);
+}
 
 function Body(){
+    console.log(contacts);
     return (<div className='body'>
-        <Card 
-        imgName="https://i.pinimg.com/736x/fe/5e/ae/fe5eae0933a79cae7c1bd4f67ca9d0aa.jpg"
-        name="Diva"
-        phone="+370 458 425"
-        email="katinius@gmail.com"
-        />
+            {contacts.map(createCard)}
+        
     </div>);
 };
 
